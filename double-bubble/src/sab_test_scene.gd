@@ -7,6 +7,7 @@ var bubble_queue = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	platformer.bubble_touched.connect(_on_platformer_bubble_touched)
+	platformer.fan_shot.connect(_on_platformer_fan_shot)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,3 +22,10 @@ func _on_platformer_bubble_touched(collider):
 func _on_bubble_pop_timer_timeout() -> void:
 	var bubble_to_remove = bubble_queue.pop_front()
 	remove_child(bubble_to_remove)
+
+func _on_platformer_fan_shot(position):
+	var wind_vec = Vector2(1, 0)
+	var wind = load("res://src/wind.tscn").instantiate()
+	add_child(wind)
+	wind.global_position = position
+	wind.linear_velocity = wind_vec * 300
