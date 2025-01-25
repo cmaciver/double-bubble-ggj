@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://4xdryhhyq1tf"]
+[gd_scene load_steps=3 format=3 uid="uid://4xdryhhyq1tf"]
+
+[ext_resource type="PackedScene" uid="uid://yqgweqv1lkrc" path="res://src/test-platform.tscn" id="1_2phd6"]
+[ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="2_k3bug"]
 
 [node name="Cam-test-scene" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_2phd6")]
+position = Vector2(114, 188)
+scale = Vector2(13.76, 1.78555)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_k3bug")]
+position = Vector2(93, 82)
