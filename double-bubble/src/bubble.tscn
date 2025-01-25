@@ -1,23 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu6ahebiuvuky"]
+[gd_scene load_steps=3 format=3 uid="uid://b8y8lwa85u1et"]
 
-[sub_resource type="Gradient" id="Gradient_ht8af"]
-colors = PackedColorArray(0.0745098, 0.654902, 0.760784, 1, 0.0763724, 0.653508, 0.759768, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nekv2"]
-gradient = SubResource("Gradient_ht8af")
+[ext_resource type="Texture2D" uid="uid://dsslg4hunrs10" path="res://assets/circle.png" id="1_ge8yu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ts8is"]
 radius = 27.0
 
 [node name="Bubble" type="RigidBody2D"]
-mass = 0.035
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(174, 269.5)
-scale = Vector2(0.71875, 0.671875)
-texture = SubResource("GradientTexture2D_nekv2")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_ge8yu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(173, 268)
+scale = Vector2(0.996052, 1)
 shape = SubResource("CircleShape2D_ts8is")
