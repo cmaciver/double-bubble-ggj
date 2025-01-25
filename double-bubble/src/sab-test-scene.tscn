@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bu6ahebiuvuky" path="res://src/bubble.tscn" id="2_lsmqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ejbj"]
-size = Vector2(1908.25, 434)
+size = Vector2(1908.25, 267)
 
 [sub_resource type="Gradient" id="Gradient_pfdk5"]
 colors = PackedColorArray(0.379319, 0.361794, 0.469469, 1, 0.396856, 0.562075, 0.572194, 1)
@@ -19,19 +19,24 @@ script = ExtResource("1_leq1t")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(957.875, 850)
+position = Vector2(957.875, 933.5)
 shape = SubResource("RectangleShape2D_3ejbj")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(953.501, 854)
-scale = Vector2(29.7031, 6.8125)
+position = Vector2(953.501, 936)
+scale = Vector2(29.7031, 4.25)
 texture = SubResource("GradientTexture2D_r3q18")
 
 [node name="Platformer" parent="." instance=ExtResource("1_o2pp1")]
-position = Vector2(333, 94)
+position = Vector2(817, 498)
 scale = Vector2(2, 2)
 
 [node name="Bubble" parent="." instance=ExtResource("2_lsmqj")]
+position = Vector2(280, 360)
+
+[node name="BubblePopTimer" type="Timer" parent="."]
+wait_time = 0.11
 
 [connection signal="body_entered" from="Bubble" to="." method="_on_bubble_body_entered"]
 [connection signal="body_shape_entered" from="Bubble" to="." method="_on_bubble_body_shape_entered"]
+[connection signal="timeout" from="BubblePopTimer" to="." method="_on_bubble_pop_timer_timeout"]

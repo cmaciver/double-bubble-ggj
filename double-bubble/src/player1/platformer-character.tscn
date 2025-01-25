@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/player1/platformer_character.gd" id="1_8wvk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnpdv"]
-size = Vector2(53, 45.5)
+size = Vector2(48, 48)
 
 [sub_resource type="Gradient" id="Gradient_oejba"]
 colors = PackedColorArray(0.504174, 0.32616, 0.852131, 1, 0.592606, 0.455284, 0.97366, 1)
@@ -15,10 +15,9 @@ gradient = SubResource("Gradient_oejba")
 script = ExtResource("1_8wvk8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(155.5, 141.25)
 shape = SubResource("RectangleShape2D_dnpdv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(155, 142)
-scale = Vector2(0.726563, 0.648437)
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(0.75, 0.75)
 texture = SubResource("GradientTexture2D_wiprs")
