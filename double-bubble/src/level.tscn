@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqoocyk7qdk8f"]
+
+[ext_resource type="Script" path="res://src/level.gd" id="1_l157x"]
+[ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
+[ext_resource type="PackedScene" uid="uid://b8y8lwa85u1et" path="res://src/bubble.tscn" id="2_dmy4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fh71"]
+size = Vector2(2241, 536)
+
+[sub_resource type="Gradient" id="Gradient_032qk"]
+colors = PackedColorArray(0.486804, 0.327561, 0.430542, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ha414"]
+gradient = SubResource("Gradient_032qk")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4vnv"]
+size = Vector2(1914.5, 752)
+
+[sub_resource type="Gradient" id="Gradient_km5i2"]
+colors = PackedColorArray(0.534461, 0.367934, 0.552153, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4nrj7"]
+gradient = SubResource("Gradient_km5i2")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkuaa"]
+size = Vector2(1118.5, 1268.5)
+
+[sub_resource type="Gradient" id="Gradient_wnejl"]
+colors = PackedColorArray(0.706362, 0.487574, 0.591575, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2062n"]
+gradient = SubResource("Gradient_wnejl")
+fill_from = Vector2(1, 0)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_l157x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1119.5, 460)
+shape = SubResource("RectangleShape2D_8fh71")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(4.50002, 2.00002)
+scale = Vector2(35.125, 8.3125)
+texture = SubResource("GradientTexture2D_ha414")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4946.75, 288)
+shape = SubResource("RectangleShape2D_s4vnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D2"]
+position = Vector2(-2.75, -3.99998)
+scale = Vector2(30, 11.875)
+texture = SubResource("GradientTexture2D_4nrj7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2416.75, 93.75)
+shape = SubResource("RectangleShape2D_nkuaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D3"]
+position = Vector2(0.249996, -3.75005)
+scale = Vector2(17.4688, 19.9375)
+texture = SubResource("GradientTexture2D_2062n")
+
+[node name="Platformer" parent="." instance=ExtResource("1_ufydh")]
+
+[node name="Bubble" parent="." instance=ExtResource("2_dmy4m")]
+position = Vector2(1632, -328)
+
+[node name="Bubble2" parent="." instance=ExtResource("2_dmy4m")]
+position = Vector2(1376, -80)
+
+[node name="BubblePopTimer" type="Timer" parent="."]
+wait_time = 0.11
+
+[connection signal="timeout" from="BubblePopTimer" to="." method="_on_bubble_pop_timer_timeout"]
