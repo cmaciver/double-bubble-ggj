@@ -16,3 +16,7 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	BubbleCharacter.hovered_bubble = null
+	
+func pop():
+	# add animation data & sound effect
+	queue_free()
