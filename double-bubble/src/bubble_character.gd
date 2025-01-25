@@ -14,6 +14,8 @@ static var hovered_bubble = null
 
 @export var MAX_SPEED = 3000
 
+var popped = false
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_just_pressed("l_click"):
 		if (hovered_bubble != null): # a bubble was clicked, pop it
@@ -60,6 +62,17 @@ func attract_towards_stuff():
 	if (linear_velocity.length() > MAX_SPEED):
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
 		
-func pop():
-	# doesn't actually pop
-	modulate = "#000000CC"
+func pop() -> bool:
+	if popped == true: # doesn't actually pop if not refresh
+		return false
+		
+	modulate = "#00000080"
+	popped = true
+	$RefreshTimer.start(3)
+	print("gamig")
+	return true
+
+
+func _on_timer_timeout() -> void:
+	modulate = "#000000FF"
+	popped = false

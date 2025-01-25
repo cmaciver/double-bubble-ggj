@@ -13,10 +13,14 @@ func _process(delta: float) -> void:
 func _on_mouse_entered() -> void:
 	BubbleCharacter.hovered_bubble = self
 
+
 func _on_mouse_exited() -> void:
 	BubbleCharacter.hovered_bubble = null
-	
-func pop():
+
+
+func pop() -> bool:
 	# add animation data & sound effect later
 	queue_free()
 	BubbleCharacter.hovered_bubble = null
+	
+	return true
