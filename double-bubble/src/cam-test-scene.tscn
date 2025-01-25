@@ -17,6 +17,7 @@ position = Vector2(171, 504)
 [node name="Bubble Character" parent="." instance=ExtResource("2_k3bug")]
 position = Vector2(103.137, 74.8654)
 can_sleep = false
+SCAN_WIDTH = 5
 
 [node name="WindArea" parent="." instance=ExtResource("4_6utqk")]
 position = Vector2(213, 537)
