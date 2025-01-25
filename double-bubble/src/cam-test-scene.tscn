@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4xdryhhyq1tf"]
+[gd_scene load_steps=6 format=3 uid="uid://4xdryhhyq1tf"]
 
 [ext_resource type="PackedScene" uid="uid://yqgweqv1lkrc" path="res://src/test-platform.tscn" id="1_2phd6"]
 [ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="2_k3bug"]
 [ext_resource type="PackedScene" uid="uid://b8y8lwa85u1et" path="res://src/bubble.tscn" id="3_cnebf"]
-[ext_resource type="PackedScene" uid="uid://ckodw26opt8s5" path="res://src/wind_area.tscn" id="4_6utqk"]
+[ext_resource type="PackedScene" uid="uid://d0c7vrqfrrv7h" path="res://src/wind_area.tscn" id="4_6utqk"]
+[ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="5_icacr"]
 
 [node name="Cam-test-scene" type="Node2D"]
 
@@ -15,14 +16,18 @@ scale = Vector2(270.644, 0.922012)
 position = Vector2(171, 504)
 
 [node name="Bubble Character" parent="." instance=ExtResource("2_k3bug")]
-position = Vector2(103.137, 74.8654)
+position = Vector2(471, 811)
 can_sleep = false
 SCAN_WIDTH = 5
 
 [node name="WindArea" parent="." instance=ExtResource("4_6utqk")]
-position = Vector2(213, 537)
+visible = true
+position = Vector2(69, -136)
 scale = Vector2(0.868594, 0.929995)
 
 [node name="Platform2" parent="." instance=ExtResource("1_2phd6")]
 position = Vector2(1150, 455)
 scale = Vector2(-2.19653, 6.75605)
+
+[node name="Platformer" parent="." instance=ExtResource("5_icacr")]
+position = Vector2(75, 816)
