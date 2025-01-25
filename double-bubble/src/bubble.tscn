@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=3 format=3 uid="uid://bu6ahebiuvuky"]
-=======
 [gd_scene load_steps=4 format=3 uid="uid://b8y8lwa85u1et"]
->>>>>>> d96fe8a1cda5037ac4f20115924c0caaeea706ed
 
 [ext_resource type="Script" path="res://src/bubble.gd" id="1_g2wj2"]
 [ext_resource type="Texture2D" uid="uid://dsslg4hunrs10" path="res://assets/temp/circle.png" id="1_ge8yu"]
@@ -18,10 +14,12 @@ constant_force = Vector2(0, -980)
 script = ExtResource("1_g2wj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.147088, 0.611286, 0.869145, 1)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_ge8yu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.996052, 1)
 shape = SubResource("CircleShape2D_ts8is")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
