@@ -12,7 +12,7 @@ static var hovered_bubble = null
 @onready var left_ray = $RayCast2DLeft
 @onready var right_ray = $RayCast2DRight
 
-@export var MAX_SPEED = 5000
+@export var MAX_SPEED = 3000
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_just_pressed("l_click"):
