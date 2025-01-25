@@ -8,7 +8,7 @@ const SPEED = 300.0
 @onready var left_ray = $RayCast2DLeft
 @onready var right_ray = $RayCast2DRight
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:		
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_pressed("l_click"):
 		center_ray.target_position = get_global_mouse_position() - position
 		var norm = center_ray.target_position.normalized()
