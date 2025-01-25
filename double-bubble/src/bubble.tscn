@@ -11,6 +11,7 @@ collision_layer = 3
 collision_mask = 3
 input_pickable = true
 inertia = 4.0
+can_sleep = false
 constant_force = Vector2(0, -980)
 script = ExtResource("1_g2wj2")
 

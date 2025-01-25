@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6yel3id1rfn4"]
+[gd_scene load_steps=6 format=3 uid="uid://c6yel3id1rfn4"]
 
 [ext_resource type="Script" path="res://src/player1/platformer_character.gd" id="1_8wvk8"]
+[ext_resource type="PackedScene" uid="uid://dve7uktmtl1sy" path="res://src/wind_gun.tscn" id="2_rfbsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnpdv"]
 size = Vector2(48, 48)
@@ -21,3 +22,7 @@ shape = SubResource("RectangleShape2D_dnpdv")
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("GradientTexture2D_wiprs")
+
+[node name="WindGun" parent="." instance=ExtResource("2_rfbsy")]
+visible = false
+scale = Vector2(0.970764, -0.45564)
