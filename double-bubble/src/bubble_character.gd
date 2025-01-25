@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Bubble
 class_name BubbleCharacter
 
 @export var max_bubbles = 3
@@ -59,3 +59,7 @@ func attract_towards_stuff():
 	
 	if (linear_velocity.length() > MAX_SPEED):
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
+		
+func pop():
+	# doesn't actually pop
+	modulate = "#000000CC"
