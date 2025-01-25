@@ -57,6 +57,5 @@ func attract_towards_stuff():
 		
 	apply_force(cool_ray.normalized() * 2000) # make this scale on distance
 	
-	var max_
 	if (linear_velocity.length() > MAX_SPEED):
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
