@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6yel3id1rfn4"]
+[gd_scene load_steps=5 format=3 uid="uid://c6yel3id1rfn4"]
 
 [ext_resource type="Script" path="res://src/player1/platformer_character.gd" id="1_8wvk8"]
-[ext_resource type="PackedScene" uid="uid://d0c7vrqfrrv7h" path="res://src/wind_area.tscn" id="2_dglnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnpdv"]
 size = Vector2(48, 48)
@@ -11,12 +10,6 @@ colors = PackedColorArray(0.504174, 0.32616, 0.852131, 1, 0.592606, 0.455284, 0.
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wiprs"]
 gradient = SubResource("Gradient_oejba")
-
-[sub_resource type="Gradient" id="Gradient_dfls8"]
-colors = PackedColorArray(0, 0.635294, 0, 1, 0.482353, 0.807843, 0.490196, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s7siv"]
-gradient = SubResource("Gradient_dfls8")
 
 [node name="Platformer" type="CharacterBody2D"]
 script = ExtResource("1_8wvk8")
@@ -28,14 +21,3 @@ shape = SubResource("RectangleShape2D_dnpdv")
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("GradientTexture2D_wiprs")
-
-[node name="Wind" type="Node2D" parent="."]
-
-[node name="WindArea" parent="Wind" instance=ExtResource("2_dglnr")]
-
-[node name="AimDisplay" type="Sprite2D" parent="Wind/WindArea"]
-visible = false
-scale = Vector2(9.3125, 0.5)
-texture = SubResource("GradientTexture2D_s7siv")
-centered = false
-offset = Vector2(16, -32)

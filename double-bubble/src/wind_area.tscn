@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://3eu6mogw8cuj" path="res://assets/temp/wind arrow.png" id="1_a83a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px3ig"]
-size = Vector2(343.8, 50.1053)
+size = Vector2(343.8, 65.6842)
 
 [node name="WindArea" type="Area2D"]
+visible = false
 position = Vector2(56, 0)
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
@@ -16,12 +17,12 @@ gravity_point_center = Vector2(1, 0)
 gravity_direction = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(644.5, 1)
+position = Vector2(644.5, -36)
 scale = Vector2(5, 4.75)
 shape = SubResource("RectangleShape2D_px3ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.423529)
-position = Vector2(641.5, 0)
-scale = Vector2(3.90271, 1)
+position = Vector2(640, -36.75)
+scale = Vector2(3.90271, 1.31013)
 texture = ExtResource("1_a83a1")

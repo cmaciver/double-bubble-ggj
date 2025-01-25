@@ -7,16 +7,20 @@ signal fan_shot
 var is_aiming = false
 var aim_dir = Vector2()
 
-@onready var aim_display = $Wind
+var wind : Node2D
+var wind_area
+
+func _ready():
+	wind = Node2D.new()
+	call_deferred("add_sibling", wind)
+	wind.position = position
+	wind_area = load("res://src/wind_area.tscn").instantiate()
+	wind.add_child(wind_area)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if Input.is_action_pressed("platform_aim"):
-		pass
-		
 
 	# Handle jump.
 	if Input.is_action_just_pressed("platform_jump") and is_on_floor():
@@ -24,17 +28,18 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("platform_aim"):
 		is_aiming = true
-		aim_display.show()
+		wind_area.show()
 		
 	if Input.is_action_just_released("platform_aim"):
 		is_aiming = false
-		aim_display.hide()
-		fan()
+		wind_area.hide()
+		#fan()
 		
 	if is_aiming:
 		aim_dir = Input.get_vector("platform_left", "platform_right", "platform_up", "platform_down")
 		print(aim_dir.angle())
-		aim_display.rotation_degrees = rad_to_deg(aim_dir.angle())
+		wind.position = position
+		wind.rotation_degrees = rad_to_deg(aim_dir.angle())
 		if is_on_floor():
 			velocity = Vector2()
 
@@ -51,5 +56,5 @@ func _physics_process(delta: float) -> void:
 		if collision.get_collider().name == "Bubble":
 			bubble_touched.emit(collision.get_collider())
 
-func fan():
-	fan_shot.emit(self.position, aim_dir)
+#func fan():
+	#fan_shot.emit(self.position, aim_dir)
