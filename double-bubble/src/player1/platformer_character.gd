@@ -7,7 +7,7 @@ signal fan_shot
 var is_aiming = false
 var aim_dir = Vector2()
 
-@onready var aim_display = $AimDisplay
+@onready var aim_display = $Wind
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -37,8 +37,6 @@ func _physics_process(delta: float) -> void:
 		aim_display.rotation_degrees = rad_to_deg(aim_dir.angle())
 		if is_on_floor():
 			velocity = Vector2()
-		
-
 
 	if(!is_aiming):
 		var direction := Input.get_axis("platform_left", "platform_right")

@@ -32,7 +32,7 @@ position = Vector2(817, 498)
 scale = Vector2(2, 2)
 
 [node name="Bubble" parent="." instance=ExtResource("2_lsmqj")]
-position = Vector2(280, 360)
+position = Vector2(624, 560)
 mass = 0.035
 
 [node name="BubblePopTimer" type="Timer" parent="."]
