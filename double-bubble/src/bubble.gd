@@ -1,18 +1,18 @@
 extends RigidBody2D
-
+class_name Bubble
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	#linear_velocity *= 0.9999999999999999999999
 
 
+func _on_mouse_entered() -> void:
+	BubbleCharacter.hovered_bubble = self
 
-func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	pass
-	
+
+func _on_mouse_exited() -> void:
+	BubbleCharacter.hovered_bubble = null
