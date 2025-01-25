@@ -14,6 +14,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	if Input.is_action_pressed("platform_aim"):
+		pass
+		
+
 	# Handle jump.
 	if Input.is_action_just_pressed("platform_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -21,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("platform_aim"):
 		is_aiming = true
 		aim_display.show()
-		velocity = Vector2()
 		
 	if Input.is_action_just_released("platform_aim"):
 		is_aiming = false
@@ -32,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		aim_dir = Input.get_vector("platform_left", "platform_right", "platform_up", "platform_down")
 		print(aim_dir.angle())
 		aim_display.rotation_degrees = rad_to_deg(aim_dir.angle())
+		if is_on_floor():
+			velocity = Vector2()
 		
 
 
