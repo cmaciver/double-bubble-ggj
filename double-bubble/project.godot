@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Double Bubble"
-run/main_scene="res://src/sab-test-scene.tscn"
+run/main_scene="res://src/level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,8 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh2fuq0xyk8cm"]
+[gd_scene load_steps=7 format=3 uid="uid://dlrslpck7rfno"]
 
-[ext_resource type="Script" path="res://src/sab_test_scene.gd" id="1_leq1t"]
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_o2pp1"]
 [ext_resource type="PackedScene" uid="uid://b8y8lwa85u1et" path="res://src/bubble.tscn" id="2_lsmqj"]
+
+[sub_resource type="GDScript" id="GDScript_si6i4"]
+script/source = "extends Node2D
+@onready var platformer = get_node(\"Platformer\")
+@onready var bubble_pop_timer = get_node(\"BubblePopTimer\")
+
+var bubble_queue = []
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	platformer.bubble_touched.connect(_on_platformer_bubble_touched)
+	platformer.fan_shot.connect(_on_platformer_fan_shot)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_platformer_bubble_touched(collider):
+	if(bubble_pop_timer.is_stopped()):
+		bubble_pop_timer.start()
+		if(!bubble_queue.has(collider)):
+			bubble_queue.append(collider)
+
+func _on_bubble_pop_timer_timeout() -> void:
+	var bubble_to_remove = bubble_queue.pop_front()
+	remove_child(bubble_to_remove)
+
+func _on_platformer_fan_shot(position):
+	var wind_vec = Vector2(1, 0)
+	var wind = load(\"res://src/wind.tscn\").instantiate()
+	add_child(wind)
+	wind.global_position = position
+	wind.linear_velocity = wind_vec * 300
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ejbj"]
 size = Vector2(1908.25, 267)
@@ -14,7 +47,7 @@ colors = PackedColorArray(0.379319, 0.361794, 0.469469, 1, 0.396856, 0.562075, 0
 gradient = SubResource("Gradient_pfdk5")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_leq1t")
+script = SubResource("GDScript_si6i4")
 
 [node name="Bubble" parent="." instance=ExtResource("2_lsmqj")]
 position = Vector2(456, 640)
@@ -37,8 +70,8 @@ scale = Vector2(2, 2)
 [node name="BubblePopTimer" type="Timer" parent="."]
 wait_time = 0.11
 
-[connection signal="body_entered" from="Bubble" to="Bubble" method="_on_body_entered"]
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(597, 723)
 
+[connection signal="body_entered" from="Bubble" to="Bubble" method="_on_body_entered"]
 [connection signal="timeout" from="BubblePopTimer" to="." method="_on_bubble_pop_timer_timeout"]
