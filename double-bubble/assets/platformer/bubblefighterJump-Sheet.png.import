@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy78yeaie525a"
-path="res://.godot/imported/bubblefighterRun-Sheet.png-f51e3538a0fa0a88846f58bbd5bff683.ctex"
+uid="uid://dj1k0lu3pknf2"
+path="res://.godot/imported/bubblefighterJump-Sheet.png-0498a4d570e63c116bff60f4c92d4a62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bubblefighterRun-Sheet.png"
-dest_files=["res://.godot/imported/bubblefighterRun-Sheet.png-f51e3538a0fa0a88846f58bbd5bff683.ctex"]
+source_file="res://assets/platformer/bubblefighterJump-Sheet.png"
+dest_files=["res://.godot/imported/bubblefighterJump-Sheet.png-0498a4d570e63c116bff60f4c92d4a62.ctex"]
 
 [params]
 

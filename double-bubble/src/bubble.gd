@@ -2,10 +2,11 @@ extends RigidBody2D
 class_name Bubble
 
 var is_popped = false
+@onready var animation_player = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	animation_player.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

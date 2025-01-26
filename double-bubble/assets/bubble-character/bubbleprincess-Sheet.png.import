@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj1k0lu3pknf2"
-path="res://.godot/imported/bubblefighterJump-Sheet.png-3af5690d7ab20d67df9fa6fbc792af06.ctex"
+uid="uid://cfs6lmhm2su8h"
+path="res://.godot/imported/bubbleprincess-Sheet.png-b85c95f11b7d37617ab777a739e48926.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bubblefighterJump-Sheet.png"
-dest_files=["res://.godot/imported/bubblefighterJump-Sheet.png-3af5690d7ab20d67df9fa6fbc792af06.ctex"]
+source_file="res://assets/bubble-character/bubbleprincess-Sheet.png"
+dest_files=["res://.godot/imported/bubbleprincess-Sheet.png-b85c95f11b7d37617ab777a739e48926.ctex"]
 
 [params]
 

@@ -67,12 +67,13 @@ scale = Vector2(17.4688, 19.9375)
 texture = SubResource("GradientTexture2D_2062n")
 
 [node name="Platformer" parent="." instance=ExtResource("1_ufydh")]
+position = Vector2(51, 165)
 
 [node name="Bubble" parent="." instance=ExtResource("2_dmy4m")]
 position = Vector2(1632, -328)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_dmy4m")]
-position = Vector2(454, 22)
+position = Vector2(261, 120)
 
 [node name="Bubble Character" parent="." instance=ExtResource("3_vq1nb")]
 position = Vector2(139, -67)

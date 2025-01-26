@@ -16,6 +16,7 @@ var is_aiming = false
 var aim_dir = Vector2()
 
 var is_jumping: bool
+var was_on_floor: bool = true
 
 #window of time where you can heighten jump after bouncing off bubble
 var bounce_timer = 0.0
@@ -26,10 +27,12 @@ var bounce_timer = 0.0
 func _physics_process(delta: float) -> void:
 	
 	#Animation
-	if is_on_floor() and is_jumping:
-		animation_player.play("platform_land")
-	elif Input.is_action_just_pressed("platform_jump"):
+	if Input.is_action_just_pressed("platform_jump") or (!is_on_floor() and was_on_floor):
 		animation_player.play('platform_jump')
+	elif(animation_player.animation == "platform_land" and animation_player.is_playing()):
+		pass
+	elif is_on_floor() and !was_on_floor:
+		animation_player.play("platform_land")
 	elif Input.get_axis("platform_left", "platform_right") < 0:
 		if is_on_floor():
 			animation_player.play("platform_run")
@@ -42,7 +45,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		was_on_floor = false
 	else:
+		was_on_floor = true
 		if(Input.is_action_pressed("platform_jump")):
 			is_jumping = true
 			jump_velocity = JUMP_DEFAULT

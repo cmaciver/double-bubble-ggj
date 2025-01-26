@@ -28,8 +28,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_pressed("r_click"):
 		#print("har")
 		attract_towards_stuff()
-		
-		
 
 
 func spawn_bubble():

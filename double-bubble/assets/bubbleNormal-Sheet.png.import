@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7pruxi4x7ffo"
-path="res://.godot/imported/bubbleNormal-Sheet.png-90ba213181f0e25732c38cb31c6f901e.ctex"
+path="res://.godot/imported/bubbleNormal-Sheet.png-828b644df1e9dcd40fb89edd4f9b1839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bubbleNormal-Sheet.png"
-dest_files=["res://.godot/imported/bubbleNormal-Sheet.png-90ba213181f0e25732c38cb31c6f901e.ctex"]
+source_file="res://assets/bubbleNormal-Sheet.png"
+dest_files=["res://.godot/imported/bubbleNormal-Sheet.png-828b644df1e9dcd40fb89edd4f9b1839.ctex"]
 
 [params]
 

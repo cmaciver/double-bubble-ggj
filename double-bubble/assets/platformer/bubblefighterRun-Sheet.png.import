@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfs6lmhm2su8h"
-path="res://.godot/imported/bubbleprincess-Sheet.png-f5055ae22da9e1472fba0ae75d80cd21.ctex"
+uid="uid://cy78yeaie525a"
+path="res://.godot/imported/bubblefighterRun-Sheet.png-c8978e4003cc1a0e80cd5f5ab7e69c0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bubbleprincess-Sheet.png"
-dest_files=["res://.godot/imported/bubbleprincess-Sheet.png-f5055ae22da9e1472fba0ae75d80cd21.ctex"]
+source_file="res://assets/platformer/bubblefighterRun-Sheet.png"
+dest_files=["res://.godot/imported/bubblefighterRun-Sheet.png-c8978e4003cc1a0e80cd5f5ab7e69c0f.ctex"]
 
 [params]
 
