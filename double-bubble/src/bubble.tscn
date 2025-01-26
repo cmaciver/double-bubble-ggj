@@ -78,6 +78,7 @@ input_pickable = true
 mass = 5.0
 inertia = 4.0
 can_sleep = false
+angular_damp = 100.0
 constant_force = Vector2(0, -4900)
 script = ExtResource("1_g2wj2")
 

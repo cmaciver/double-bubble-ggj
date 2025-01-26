@@ -13,11 +13,24 @@ static var hovered_bubble = null
 @onready var right_ray = $RayCast2DRight
 
 @export var MAX_SPEED = 2200
-@export var MAX_SPEED_UNTETHERED = 100
+@export var MAX_SPEED_UNTETHERED = 50
 
 var popped = false
 
+var setting_pos = false
+var new_pos: Vector2
+
+func set_pos(pos):
+	setting_pos = true
+	new_pos = pos
+	
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if setting_pos:
+		setting_pos = false
+		position = new_pos
+		return
+	
 	if Input.is_action_just_pressed("l_click"):
 		if (hovered_bubble != null): # a bubble was clicked, pop it
 			hovered_bubble.pop()

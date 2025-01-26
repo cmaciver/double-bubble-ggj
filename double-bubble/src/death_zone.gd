@@ -1,6 +1,7 @@
 extends Area2D
 
 var spawn_point
+var bubble_girl
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,6 +9,8 @@ func _ready() -> void:
 	if (temp != null):
 		spawn_point = temp[0]
 		print(spawn_point)
+		
+	bubble_girl = get_parent().find_child("Bubble Character")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,5 +23,8 @@ func _on_body_entered(body: Node2D) -> void:
 		if (spawn_point != null):
 			body.position = spawn_point.position
 			body.velocity = Vector2()
+			
+			bubble_girl.linear_velocity = Vector2()
+			bubble_girl.set_pos(spawn_point.position + Vector2(100,-100))
 		
 		
