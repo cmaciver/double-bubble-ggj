@@ -8,7 +8,6 @@ var is_aiming = false
 var aim_dir = Vector2()
 var jump_mult : float = 0.0
 var is_jumping: bool
-var is_bouncing: bool
 var bounce_timer = 0.0
 
 @onready var wind : Area2D = $WindGun
@@ -75,7 +74,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Normal Movement
 	else:
-		#wind.hide()
+		wind.hide()
 		var direction := Input.get_axis("platform_left", "platform_right")
 		if direction:
 			velocity.x = direction * SPEED
@@ -86,9 +85,8 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().has_method("pop"):
-			#bubble_touched.emit(collision.get_collider())
+			collision.get_collider().pop()
 			if(position.y < collision.get_collider().position.y):
-				print("what is good")
 				bounce_timer = .8;
 				jump_velocity = -500;
 				velocity.y = jump_velocity;

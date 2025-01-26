@@ -37,11 +37,8 @@ scale = Vector2(2, 2)
 [node name="BubblePopTimer" type="Timer" parent="."]
 wait_time = 0.11
 
-<<<<<<< HEAD
 [connection signal="body_entered" from="Bubble" to="Bubble" method="_on_body_entered"]
-=======
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(597, 723)
 
->>>>>>> d3942fc307ab6b054fd91d242765cf1ce8f31a21
 [connection signal="timeout" from="BubblePopTimer" to="." method="_on_bubble_pop_timer_timeout"]

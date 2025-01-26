@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqoocyk7qdk8f"]
+[gd_scene load_steps=12 format=3 uid="uid://bqoocyk7qdk8f"]
 
-[ext_resource type="Script" path="res://src/level.gd" id="1_l157x"]
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
 [ext_resource type="PackedScene" uid="uid://b8y8lwa85u1et" path="res://src/bubble.tscn" id="2_dmy4m"]
 
@@ -35,7 +34,6 @@ gradient = SubResource("Gradient_wnejl")
 fill_from = Vector2(1, 0)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_l157x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -73,8 +71,3 @@ position = Vector2(1632, -328)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_dmy4m")]
 position = Vector2(1376, -80)
-
-[node name="BubblePopTimer" type="Timer" parent="."]
-wait_time = 0.11
-
-[connection signal="timeout" from="BubblePopTimer" to="." method="_on_bubble_pop_timer_timeout"]
