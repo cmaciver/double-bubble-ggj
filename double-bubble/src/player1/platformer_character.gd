@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name PlatformerCharacter
 
 # movement speed
 const SPEED = 400.0
