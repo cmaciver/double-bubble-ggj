@@ -29,11 +29,6 @@ func _on_body_entered(body: Node2D) -> void:
 		bubble_girl.linear_velocity = Vector2()
 		bubble_girl.set_pos(spawn_point.position + Vector2(100,-100))
 			
-		var bubbles = get_parent().find_children("B?")
-		print(bubbles)
-		
-		for b in bubbles:
-			b.pop()
-			
-		
+
+		get_tree().call_group("BubbleGroup", "pop")
 		

@@ -54,6 +54,8 @@ func spawn_bubble():
 	var dir = get_global_mouse_position() - position
 	new_bubble.position = position + dir.normalized() * 100
 	new_bubble.apply_force(dir * 10)
+	
+	
 
 
 func attract_towards_stuff():
@@ -85,7 +87,7 @@ func attract_towards_stuff():
 		
 	if not tethered and linear_velocity.length() > MAX_SPEED_UNTETHERED:
 		var vel_cap = linear_velocity.normalized() * MAX_SPEED_UNTETHERED
-		var weight = 0.95
+		var weight = 0.9
 		linear_velocity = vel_cap *(1-weight) + linear_velocity *(weight)
 
 
