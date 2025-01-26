@@ -19,7 +19,7 @@ position = Vector2(24, 92)
 position = Vector2(139, -67)
 
 [node name="DeathZone" parent="." instance=ExtResource("4_xqfdg")]
-position = Vector2(1073, 755)
+position = Vector2(1379, 755)
 scale = Vector2(735.319, 32.1204)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_c3bmc")]
@@ -33,75 +33,80 @@ position = Vector2(73, 224)
 scale = Vector2(5.37268, 2.9884)
 
 [node name="Platform4" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(1650, 321)
+position = Vector2(2113, -179)
 scale = Vector2(4.92974, 5.94549)
 
 [node name="Platform5" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(2494, 356)
+position = Vector2(2957, -144)
 scale = Vector2(4.92974, 5.94549)
 
 [node name="Platform6" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(3415, 363)
+position = Vector2(3878, -137)
 scale = Vector2(3.53372, 5.74017)
 
 [node name="Platform8" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4957, 470)
+position = Vector2(5420, -30)
 scale = Vector2(31.1737, 30.8218)
 
 [node name="Platform7" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(3817, 363)
+position = Vector2(4280, -137)
 scale = Vector2(-5.74273, -7.08602)
 
 [node name="Platform9" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4563, -972)
+position = Vector2(5026, -1472)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform10" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4688, -979)
+position = Vector2(5151, -1479)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform11" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4826, -974)
+position = Vector2(5289, -1474)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform12" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4954, -974)
+position = Vector2(5417, -1474)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform14" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(5090, -977)
+position = Vector2(5553, -1477)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform16" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(5162, -982)
+position = Vector2(5625, -1482)
 rotation = -0.601082
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform15" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(5252, -977)
+position = Vector2(5715, -1477)
 scale = Vector2(-1.32133, -3.76187)
 
 [node name="Platform13" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(4692, -884)
+position = Vector2(5155, -1384)
 scale = Vector2(4.35372, -0.967458)
 
 [node name="Platform3" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(1283, 365)
+position = Vector2(1691, -72)
+scale = Vector2(2.64716, 11.3516)
+
+[node name="Platform17" parent="Node" instance=ExtResource("6_f4ohr")]
+position = Vector2(1270, 191)
 scale = Vector2(2.64716, 11.3516)
 
 [node name="WindArea" parent="Node" groups=["BubbleGroup"] instance=ExtResource("7_gxm6s")]
-position = Vector2(1889, 300)
+position = Vector2(2352, -200)
 gravity = 300.0
 
 [node name="WindArea2" parent="Node" instance=ExtResource("7_gxm6s")]
-position = Vector2(1128, 201)
+position = Vector2(1526, 201)
 rotation = -1.57921
+scale = Vector2(0.239885, 0.985945)
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
-gravity = 300.0
+gravity = 100.0
 
 [node name="WindArea3" parent="Node" instance=ExtResource("7_gxm6s")]
-position = Vector2(3204, 95)
+position = Vector2(3667, -405)
 rotation = -4.71148
 scale = Vector2(0.414104, 0.412654)
 gravity_point_center = Vector2(0, 1)
@@ -109,7 +114,7 @@ gravity_direction = Vector2(0, 1)
 gravity = 300.0
 
 [node name="WindArea4" parent="Node" instance=ExtResource("7_gxm6s")]
-position = Vector2(2833, 95)
+position = Vector2(3296, -405)
 rotation = -4.71148
 scale = Vector2(0.414104, 0.412654)
 gravity_point_center = Vector2(0, 1)
