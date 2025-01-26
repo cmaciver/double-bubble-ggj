@@ -5,7 +5,7 @@ class_name PlatformerCharacter
 const SPEED = 300.0
 
 #default jump velocity @ start of jump
-const JUMP_DEFAULT = -200.0
+const JUMP_DEFAULT = -350.0
 
 #jump velocity, updated as you jump
 var jump_velocity : float
@@ -61,7 +61,6 @@ func _physics_process(delta: float) -> void:
 		bounce_timer -= 0.03;
 		if(bounce_timer <= 0.0):
 			bounce_timer = 0
-			is_jumping = false
 		
 	#if you pressed jump soon after bouncing off bubble
 	if(Input.is_action_just_pressed("platform_jump") and bounce_timer > 0.0):
@@ -77,9 +76,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		
 	#otherwise if you're already jumping, increase velocity if you keep holding jump up to a maximum velocity
-	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -400:
+	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -450:
 		jump_velocity *= 1.01;
 		velocity.y = jump_velocity
+		print(jump_velocity)
 		
 	#otherwise reset the velocity
 	elif !Input.is_action_pressed("platform_jump") and is_on_floor():
