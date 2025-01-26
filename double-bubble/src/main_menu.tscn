@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://e5tp60crnyob"]
+[gd_scene load_steps=5 format=3 uid="uid://e5tp60crnyob"]
 
 [ext_resource type="Script" path="res://src/main_menu.gd" id="1_icl3w"]
-
-[sub_resource type="Gradient" id="Gradient_74paj"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_34e8g"]
-gradient = SubResource("Gradient_74paj")
+[ext_resource type="Texture2D" uid="uid://bmfn80no54cmg" path="res://assets/MenuScreenBG.png" id="2_hjikn"]
+[ext_resource type="Texture2D" uid="uid://c5rs4cnaxu6w8" path="res://assets/menuButton.png" id="3_es17u"]
+[ext_resource type="Texture2D" uid="uid://bbfu22ulpa6vm" path="res://assets/depressedmenuButton.png" id="4_7bp7q"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,7 +18,7 @@ script = ExtResource("1_icl3w")
 layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
-texture = SubResource("GradientTexture1D_34e8g")
+texture = ExtResource("2_hjikn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -32,8 +30,23 @@ offset_top = 337.0
 offset_right = 522.64
 offset_bottom = 297.62
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_es17u")
+texture_pressed = ExtResource("4_7bp7q")
+
+[node name="Label" type="Label" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 15.0
+offset_right = 80.0
+offset_bottom = 38.0
+text = "START
+"
+
+[connection signal="pressed" from="VBoxContainer/Control/TextureButton" to="." method="_on_button_pressed"]
