@@ -27,7 +27,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
-		is_jumping = false
+		if(Input.is_action_pressed("platform_jump")):
+			is_jumping = true
+			jump_velocity = JUMP_DEFAULT
+			velocity.y = jump_velocity
+		else: 
+			is_jumping = false
 		
 	#if you're bouncing, count down on the bounce timer
 	if bounce_timer > 0.0:
