@@ -1,31 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqoocyk7qdk8f"]
+[gd_scene load_steps=7 format=3 uid="uid://bqoocyk7qdk8f"]
 
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
 [ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="3_vq1nb"]
 [ext_resource type="PackedScene" uid="uid://1kchxufmgryb" path="res://src/death_zone.tscn" id="4_xqfdg"]
 [ext_resource type="PackedScene" uid="uid://bmjsil2gbwd2l" path="res://src/spawn_point.tscn" id="5_c3bmc"]
+[ext_resource type="PackedScene" uid="uid://d0c7vrqfrrv7h" path="res://src/wind_area.tscn" id="6_cac0b"]
 [ext_resource type="PackedScene" uid="uid://yqgweqv1lkrc" path="res://src/test-platform.tscn" id="6_f4ohr"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Platformer" parent="." instance=ExtResource("1_ufydh")]
-position = Vector2(51, 165)
+position = Vector2(24, 92)
 
 [node name="Bubble Character" parent="." instance=ExtResource("3_vq1nb")]
 position = Vector2(139, -67)
 
 [node name="DeathZone" parent="." instance=ExtResource("4_xqfdg")]
-position = Vector2(1052, 606)
+position = Vector2(1081, 593)
 scale = Vector2(735.319, 32.1204)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("5_c3bmc")]
 position = Vector2(11, 93)
 scale = Vector2(-7.12737, -6.22082)
 
-[node name="Platform" parent="." instance=ExtResource("6_f4ohr")]
+[node name="Node" type="Node" parent="."]
+
+[node name="Platform" parent="Node" instance=ExtResource("6_f4ohr")]
 position = Vector2(73, 224)
 scale = Vector2(5.37268, 2.9884)
 
-[node name="Platform2" parent="." instance=ExtResource("6_f4ohr")]
-position = Vector2(753, 320)
-scale = Vector2(9.71834, 7.16959)
+[node name="Platform2" parent="Node" instance=ExtResource("6_f4ohr")]
+position = Vector2(629, 324)
+scale = Vector2(4.92974, 5.94549)
+
+[node name="Platform4" parent="Node" instance=ExtResource("6_f4ohr")]
+position = Vector2(1593, 282)
+scale = Vector2(4.92974, 5.94549)
+
+[node name="Platform3" parent="Node" instance=ExtResource("6_f4ohr")]
+position = Vector2(1058, 398)
+scale = Vector2(2.64716, 11.3516)
+
+[node name="WindArea" parent="Node" instance=ExtResource("6_cac0b")]
+position = Vector2(1135, 167)
+gravity = 300.0

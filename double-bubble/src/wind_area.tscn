@@ -6,7 +6,6 @@
 size = Vector2(343.8, 65.6842)
 
 [node name="WindArea" type="Area2D"]
-visible = false
 position = Vector2(56, 0)
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
