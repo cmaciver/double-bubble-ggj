@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqoocyk7qdk8f"]
+[gd_scene load_steps=8 format=3 uid="uid://bqoocyk7qdk8f"]
 
+[ext_resource type="PackedScene" uid="uid://b5cww60ngr2pb" path="res://background.tscn" id="1_3ff5x"]
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
 [ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="3_vq1nb"]
-[ext_resource type="PackedScene" path="res://src/death_zone.tscn" id="4_xqfdg"]
-[ext_resource type="PackedScene" path="res://src/spawn_point.tscn" id="5_c3bmc"]
-[ext_resource type="PackedScene" uid="uid://b5cww60ngr2pb" path="res://background.tscn" id="6_8311y"]
+[ext_resource type="PackedScene" uid="uid://1kchxufmgryb" path="res://src/death_zone.tscn" id="4_xqfdg"]
+[ext_resource type="PackedScene" uid="uid://bmjsil2gbwd2l" path="res://src/spawn_point.tscn" id="5_c3bmc"]
 [ext_resource type="PackedScene" uid="uid://yqgweqv1lkrc" path="res://src/test-platform.tscn" id="6_f4ohr"]
+[ext_resource type="PackedScene" uid="uid://d0c7vrqfrrv7h" path="res://src/wind_area.tscn" id="7_gxm6s"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_3ff5x")]
 
 [node name="Platformer" parent="." instance=ExtResource("1_ufydh")]
 position = Vector2(24, 92)
@@ -29,12 +32,8 @@ scale = Vector2(-7.12737, -6.22082)
 position = Vector2(73, 224)
 scale = Vector2(5.37268, 2.9884)
 
-[node name="Platform2" parent="." instance=ExtResource("6_f4ohr")]
-position = Vector2(753, 320)
-scale = Vector2(9.71834, 7.16959)
-
 [node name="Platform4" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(1593, 282)
+position = Vector2(1650, 321)
 scale = Vector2(4.92974, 5.94549)
 
 [node name="Platform5" parent="Node" instance=ExtResource("6_f4ohr")]
@@ -50,20 +49,19 @@ position = Vector2(3317, 277)
 scale = Vector2(-5.74273, -7.08602)
 
 [node name="Platform3" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(1058, 398)
+position = Vector2(1283, 365)
 scale = Vector2(2.64716, 11.3516)
 
-[node name="WindArea" parent="Node" instance=ExtResource("6_cac0b")]
-position = Vector2(1135, 167)
-gravity = 300.0
+[node name="WindArea" parent="Node" instance=ExtResource("7_gxm6s")]
+position = Vector2(1889, 300)
 
-[node name="WindArea2" parent="Node" instance=ExtResource("6_cac0b")]
-position = Vector2(2116, 362)
-rotation = -1.56941
-scale = Vector2(0.1212, 2.62369)
+[node name="WindArea2" parent="Node" instance=ExtResource("7_gxm6s")]
+position = Vector2(1128, 201)
+rotation = -1.57921
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
-gravity = 1000.0
-[node name="Background" parent="." instance=ExtResource("6_8311y")]
-z_index = -5
-position = Vector2(-222, -49)
+gravity = 300.0
+
+[node name="Platform2" parent="." instance=ExtResource("6_f4ohr")]
+position = Vector2(717, 296)
+scale = Vector2(9.71834, 7.16959)
