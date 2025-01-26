@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://yqgweqv1lkrc"]
-
-[ext_resource type="Texture2D" uid="uid://b30vpwxr4n11t" path="res://icon.svg" id="1_w5a4x"]
+[gd_scene load_steps=4 format=3 uid="uid://yqgweqv1lkrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gvxb"]
-size = Vector2(128, 129)
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_ed0e7"]
+colors = PackedColorArray(1, 0.244241, 0.770422, 1, 0.552429, 0.317494, 0.999978, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8i4ph"]
+gradient = SubResource("Gradient_ed0e7")
+fill_from = Vector2(0, 1)
 
 [node name="Platform" type="StaticBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_w5a4x")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7gvxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_8i4ph")
