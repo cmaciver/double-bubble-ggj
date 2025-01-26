@@ -23,15 +23,12 @@ position = Vector2(0, 1.90735e-06)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("GradientTexture2D_wiprs")
 
-<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.72
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
-=======
 [node name="WindGun" parent="." instance=ExtResource("2_rfbsy")]
 visible = false
 scale = Vector2(0.970764, -0.45564)
->>>>>>> d3942fc307ab6b054fd91d242765cf1ce8f31a21
