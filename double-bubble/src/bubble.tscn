@@ -129,7 +129,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"pop",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -149,7 +149,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"unpop",
-"speed": 8.0
+"speed": 16.0
 }]
 
 [node name="Bubble" type="RigidBody2D"]
@@ -175,7 +175,7 @@ shape = SubResource("CircleShape2D_ts8is")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, 1)
 sprite_frames = SubResource("SpriteFrames_l6ulh")
-animation = &"unpop"
+animation = &"pop"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
