@@ -1,4 +1,5 @@
-extends Node2D
+extends Area2D
+
 
 @onready var animation_player = $AnimatedSprite2D
 
@@ -7,7 +8,6 @@ extends Node2D
 func _ready() -> void:
 	animation_player.play("default")
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

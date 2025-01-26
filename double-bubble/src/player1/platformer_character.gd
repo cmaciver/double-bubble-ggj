@@ -28,7 +28,37 @@ var bounce_timer = 0.0
 func _physics_process(delta: float) -> void:
 	
 	#Animation
-	if Input.is_action_just_pressed("platform_jump") or (!is_on_floor() and was_on_floor):
+	if is_aiming:
+		var aim_angle = round(rad_to_deg(aim_dir.angle()))
+		match aim_angle:
+			0.0: 
+				animation_player.play('fan_side')
+				animation_player.flip_h = false
+			45.0: 
+				animation_player.play('fan_angle_down')
+				animation_player.flip_h = false
+			90.0:
+				animation_player.play('fan_down')
+				animation_player.flip_h = false	
+			135.0: 
+				animation_player.play('fan_angle_down')
+				animation_player.flip_h = true
+			180.0: 
+				animation_player.play('fan_side')
+				animation_player.flip_h = true
+			-135.0: 
+				animation_player.play('fan_angle_up')
+				animation_player.flip_h = true
+			-90.0: 
+				animation_player.play('fan_up')
+				animation_player.flip_h = false
+			-45.0: 
+				animation_player.play('fan_angle_up')
+				animation_player.flip_h = false
+			_:
+				pass
+			
+	elif Input.is_action_just_pressed("platform_jump") or (!is_on_floor() and was_on_floor):
 		animation_player.play('platform_jump')
 	elif(animation_player.animation == "platform_land" and animation_player.is_playing()):
 		pass
@@ -42,6 +72,8 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			animation_player.play("platform_run")
 		animation_player.flip_h = false
+	elif is_on_floor() and !animation_player.is_playing() or animation_player.animation == "platform_run":
+		animation_player.play("platform_idle")
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -79,7 +111,6 @@ func _physics_process(delta: float) -> void:
 	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -450:
 		jump_velocity *= 1.01;
 		velocity.y = jump_velocity
-		#print(jump_velocity)
 		
 	#otherwise reset the velocity
 	elif !Input.is_action_pressed("platform_jump") and is_on_floor():
@@ -124,8 +155,8 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider() is Bubble:
-			var bounce = collision.get_collider().pop()
-			if(bounce and position.y < collision.get_collider().position.y):
+			collision.get_collider().pop()
+			if(position.y < collision.get_collider().position.y):
 				bounce_timer = .8;
 				jump_velocity = JUMP_DEFAULT;
 				velocity.y = jump_velocity;

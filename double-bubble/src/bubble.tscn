@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8y8lwa85u1et"]
+[gd_scene load_steps=25 format=3 uid="uid://b8y8lwa85u1et"]
 
 [ext_resource type="Script" path="res://src/bubble.gd" id="1_g2wj2"]
 [ext_resource type="Texture2D" uid="uid://dsslg4hunrs10" path="res://assets/temp/circle.png" id="1_ge8yu"]
 [ext_resource type="Texture2D" uid="uid://b7pruxi4x7ffo" path="res://assets/bubbleNormal-Sheet.png" id="3_mq47u"]
+[ext_resource type="Texture2D" uid="uid://dkfgiwelhmlof" path="res://assets/bubblePop-Sheet.png" id="4_0t8p2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ts8is"]
 radius = 27.0
@@ -39,6 +40,46 @@ region = Rect2(438, 0, 73, 65)
 atlas = ExtResource("3_mq47u")
 region = Rect2(511, 0, 73, 65)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b82bi"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(0, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q5s8"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(95, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpfp5"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(190, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmiie"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(285, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ougji"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(380, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pckrj"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(380, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1obc"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(285, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ximh"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(190, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqomo"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(95, 0, 95, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onpwn"]
+atlas = ExtResource("4_0t8p2")
+region = Rect2(0, 0, 95, 85)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_l6ulh"]
 animations = [{
 "frames": [{
@@ -68,7 +109,47 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b82bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q5s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpfp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmiie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ougji")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pckrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1obc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ximh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqomo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onpwn")
+}],
+"loop": false,
+"name": &"unpop",
+"speed": 8.0
 }]
 
 [node name="Bubble" type="RigidBody2D"]
@@ -92,8 +173,9 @@ scale = Vector2(0.996052, 1)
 shape = SubResource("CircleShape2D_ts8is")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 0)
+position = Vector2(4, 1)
 sprite_frames = SubResource("SpriteFrames_l6ulh")
+animation = &"unpop"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

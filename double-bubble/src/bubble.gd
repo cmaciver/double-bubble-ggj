@@ -32,6 +32,8 @@ func pop() -> bool:
 	collision_mask = 0
 	BubbleCharacter.hovered_bubble = null
 	BubbleCharacter.current_bubbles -= 1
+	animation_player.play("pop")
+	await animation_player.animation_finished
 	queue_free()
 	
 	return true
