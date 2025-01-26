@@ -11,6 +11,7 @@ static var hovered_bubble = null
 @onready var center_ray = $RayCast2DCenter
 @onready var left_ray = $RayCast2DLeft
 @onready var right_ray = $RayCast2DRight
+@onready var pop_player = $BubblePop
 
 @export var MAX_SPEED = 2200
 @export var MAX_SPEED_UNTETHERED = 50
@@ -94,18 +95,27 @@ func attract_towards_stuff():
 func pop() -> bool:
 	if popped == true: # doesn't actually pop if not refresh
 		return false
-		
-	modulate = "#FFFFFF40"
+	pop_player.show()
+	pop_player.play("pop")
+	animation_player.play("no_bubble")
 	popped = true
 	$RefreshTimer.start(3)
 	collision_layer = 0
 	collision_mask = 4
+	await pop_player.animation_finished
+	modulate = "#FFFFFF40"
+	pop_player.hide()
 	
 	return true
 
 
 func _on_timer_timeout() -> void:
 	modulate = "#FFFFFFFF"
+	pop_player.show()
+	pop_player.play("unpop")
+	await pop_player.animation_finished
+	animation_player.play("default")
+	pop_player.hide()
 	popped = false
 	
 	collision_layer = 2 + 1

@@ -293,4 +293,4 @@ scale = Vector2(0.970764, -0.45564)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d7lox")
-animation = &"fan_angle_down"
+animation = &"fan_up"

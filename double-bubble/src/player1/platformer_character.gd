@@ -27,9 +27,14 @@ var bounce_timer = 0.0
 
 func _physics_process(delta: float) -> void:
 	
+	if animation_player.animation.contains("fan"):
+		animation_player.offset.y = 3
+	else:
+		animation_player.offset.y = 0
 	#Animation
 	if is_aiming:
 		var aim_angle = round(rad_to_deg(aim_dir.angle()))
+		animation_player.offset.y = 3
 		match aim_angle:
 			0.0: 
 				animation_player.play('fan_side')
@@ -111,6 +116,7 @@ func _physics_process(delta: float) -> void:
 	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -450:
 		jump_velocity *= 1.01;
 		velocity.y = jump_velocity
+	
 		
 	#otherwise reset the velocity
 	elif !Input.is_action_pressed("platform_jump") and is_on_floor():
