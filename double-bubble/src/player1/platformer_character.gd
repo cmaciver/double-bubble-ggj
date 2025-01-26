@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("platform_aim"):
 		is_aiming = false
 		wind.hide()
-		
+		wind.gravity_direction = Vector2(0,0)
 	
 	# Aiming
 	if Input.is_action_pressed("platform_aim"):
