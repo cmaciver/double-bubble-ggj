@@ -126,20 +126,19 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > 0:
 		velocity.y *= 1.01
 		
+	aim_dir = Input.get_vector("platform_left", "platform_right", "platform_up", "platform_down")
 		
-	if Input.is_action_just_pressed("platform_aim"):
-		is_aiming = true
-		wind.show()
-		
-	if Input.is_action_just_released("platform_aim"):
+	if Input.is_action_just_released("platform_aim") or (is_aiming and aim_dir == Vector2()):
 		is_aiming = false
 		wind.hide()
 		wind.gravity_direction = Vector2(0,0)
 	
 	# Aiming
 	if Input.is_action_pressed("platform_aim"):
-		wind.show()
-		aim_dir = Input.get_vector("platform_left", "platform_right", "platform_up", "platform_down")
+		
+		if aim_dir != Vector2():
+				wind.show()
+				is_aiming = true
 		wind.gravity_direction = aim_dir
 		wind.rotation = aim_dir.angle()
 		if is_on_floor():
