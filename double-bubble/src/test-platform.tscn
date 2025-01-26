@@ -11,6 +11,8 @@ gradient = SubResource("Gradient_ed0e7")
 fill_from = Vector2(0, 1)
 
 [node name="Platform" type="StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7gvxb")
