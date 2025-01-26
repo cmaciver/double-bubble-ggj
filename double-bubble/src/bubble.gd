@@ -20,7 +20,9 @@ func _on_mouse_exited() -> void:
 
 func pop() -> bool:
 	# add animation data & sound effect later
-	queue_free()
+	collision_layer = 0
+	BubbleCharacter.current_bubbles -= 1
 	BubbleCharacter.hovered_bubble = null
+	queue_free()
 	
 	return true
