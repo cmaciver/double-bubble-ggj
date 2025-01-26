@@ -4,6 +4,8 @@ class_name Bubble
 var is_popped = false
 @onready var animation_player = $AnimatedSprite2D
 
+var pin = load("res://assets/bubble-character/needleforPopping.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("default")
@@ -16,11 +18,14 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	BubbleCharacter.hovered_bubble = self
+	Input.set_custom_mouse_cursor(pin)
 
 
 func _on_mouse_exited() -> void:
 	BubbleCharacter.hovered_bubble = null
-
+	#Input.set_custom_mouse_cursor(Input.CURSOR_ARROW)
+	
+	Input.set_custom_mouse_cursor(null)
 
 func pop() -> bool:	
 	if is_popped:
