@@ -8,7 +8,6 @@ func _ready() -> void:
 	var temp = get_parent().find_children("SpawnPoint")
 	if (temp != null):
 		spawn_point = temp[0]
-		print(spawn_point)
 		
 	bubble_girl = get_parent().find_child("Bubble Character")
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c22vtnmo6hfwj"]
+[gd_scene load_steps=13 format=3 uid="uid://c22vtnmo6hfwj"]
 
 [ext_resource type="Script" path="res://src/bubble_character.gd" id="1_ovhsf"]
-[ext_resource type="Texture2D" uid="uid://c4mty8klmu2r0" path="res://assets/temp/circle GUY.png" id="2_f2gvg"]
 [ext_resource type="Texture2D" uid="uid://cfs6lmhm2su8h" path="res://assets/bubble-character/bubbleprincess-Sheet.png" id="3_i7mgx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlla7"]
@@ -78,12 +77,6 @@ mass = 5.0
 can_sleep = false
 constant_force = Vector2(0, -4900)
 script = ExtResource("1_ovhsf")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.458824)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_f2gvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.05, 0.05)

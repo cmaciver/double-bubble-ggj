@@ -1,9 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0c7vrqfrrv7h"]
+[gd_scene load_steps=9 format=3 uid="uid://d0c7vrqfrrv7h"]
 
+[ext_resource type="Script" path="res://src/wind_area.gd" id="1_5dmeh"]
 [ext_resource type="Texture2D" uid="uid://3eu6mogw8cuj" path="res://assets/temp/wind arrow.png" id="1_a83a1"]
+[ext_resource type="Texture2D" uid="uid://b7vfnx32ff62d" path="res://assets/windYEET-Sheet.png" id="2_xpiqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px3ig"]
 size = Vector2(343.8, 65.6842)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpp0o"]
+atlas = ExtResource("2_xpiqw")
+region = Rect2(0, 0, 28, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ima1v"]
+atlas = ExtResource("2_xpiqw")
+region = Rect2(28, 0, 28, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuapc"]
+atlas = ExtResource("2_xpiqw")
+region = Rect2(56, 0, 28, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmctv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpp0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ima1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuapc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="WindArea" type="Area2D"]
 position = Vector2(56, 0)
@@ -14,6 +45,7 @@ collision_priority = 100.0
 gravity_space_override = 1
 gravity_point_center = Vector2(1, 0)
 gravity_direction = Vector2(1, 0)
+script = ExtResource("1_5dmeh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(644.5, -36)
@@ -21,7 +53,14 @@ scale = Vector2(5, 4.75)
 shape = SubResource("RectangleShape2D_px3ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.423529)
 position = Vector2(640, -36.75)
 scale = Vector2(3.90271, 1.31013)
 texture = ExtResource("1_a83a1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(647.332, -35.492)
+rotation = 1.5708
+scale = Vector2(11.2541, 43.1137)
+sprite_frames = SubResource("SpriteFrames_qmctv")
