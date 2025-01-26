@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_platformer_bubble_touched(collider):
-		print("hi")
 		if(bubble_pop_timer.time_left == 0):
 			bubble_pop_timer.start()
 			if(!bubble_queue.has(collider)):
