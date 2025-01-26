@@ -113,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		
 	#otherwise if you're already jumping, increase velocity if you keep holding jump up to a maximum velocity
-	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -450:
+	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -400:
 		jump_velocity *= 1.01;
 		velocity.y = jump_velocity
 	
