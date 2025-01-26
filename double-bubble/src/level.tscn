@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
 [ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="3_vq1nb"]
-[ext_resource type="PackedScene" uid="uid://1kchxufmgryb" path="res://src/death_zone.tscn" id="4_xqfdg"]
-[ext_resource type="PackedScene" uid="uid://bmjsil2gbwd2l" path="res://src/spawn_point.tscn" id="5_c3bmc"]
-[ext_resource type="PackedScene" uid="uid://d0c7vrqfrrv7h" path="res://src/wind_area.tscn" id="6_cac0b"]
+[ext_resource type="PackedScene" path="res://src/death_zone.tscn" id="4_xqfdg"]
+[ext_resource type="PackedScene" path="res://src/spawn_point.tscn" id="5_c3bmc"]
+[ext_resource type="PackedScene" uid="uid://b5cww60ngr2pb" path="res://background.tscn" id="6_8311y"]
 [ext_resource type="PackedScene" uid="uid://yqgweqv1lkrc" path="res://src/test-platform.tscn" id="6_f4ohr"]
 
 [node name="Level" type="Node2D"]
@@ -29,9 +29,9 @@ scale = Vector2(-7.12737, -6.22082)
 position = Vector2(73, 224)
 scale = Vector2(5.37268, 2.9884)
 
-[node name="Platform2" parent="Node" instance=ExtResource("6_f4ohr")]
-position = Vector2(629, 324)
-scale = Vector2(4.92974, 5.94549)
+[node name="Platform2" parent="." instance=ExtResource("6_f4ohr")]
+position = Vector2(753, 320)
+scale = Vector2(9.71834, 7.16959)
 
 [node name="Platform4" parent="Node" instance=ExtResource("6_f4ohr")]
 position = Vector2(1593, 282)
@@ -64,3 +64,6 @@ scale = Vector2(0.1212, 2.62369)
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1000.0
+[node name="Background" parent="." instance=ExtResource("6_8311y")]
+z_index = -5
+position = Vector2(-222, -49)

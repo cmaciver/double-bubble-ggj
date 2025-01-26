@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5cww60ngr2pb"]
+
+[ext_resource type="Texture2D" uid="uid://3pk2rmwntlb7" path="res://assets/background/bubblebg3.png" id="1_3p44u"]
+[ext_resource type="Texture2D" uid="uid://d2wcyfdogholj" path="res://assets/background/bubblebg.png" id="1_6nq8v"]
+[ext_resource type="Texture2D" uid="uid://bhgp0lvdqr4np" path="res://assets/background/bubblebg2.png" id="1_ytf88"]
+
+[sub_resource type="Gradient" id="Gradient_la4ya"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.0487013, 0.873377)
+colors = PackedColorArray(0.829671, 0.709185, 0.83001, 1, 0.341176, 0.290196, 0.572549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2nx60"]
+gradient = SubResource("Gradient_la4ya")
+width = 1000
+height = 1000
+fill_to = Vector2(0, 1)
+
+[node name="Background" type="Node2D"]
+
+[node name="Parallax2D" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer"]
+position = Vector2(802.5, 396.406)
+scale = Vector2(2.367, 1.37919)
+texture = SubResource("GradientTexture2D_2nx60")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Parallax2D"]
+position = Vector2(721, 348)
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer2"]
+modulate = Color(1, 1, 1, 0.337255)
+position = Vector2(96.5001, 44.4999)
+scale = Vector2(1.26094, 1.30278)
+texture = ExtResource("1_3p44u")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Parallax2D"]
+modulate = Color(1, 1, 1, 0.403922)
+position = Vector2(11810, 1798)
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer3"]
+position = Vector2(-11003, -1415)
+scale = Vector2(1.1625, 1.17963)
+texture = ExtResource("1_ytf88")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Parallax2D"]
+modulate = Color(1, 1, 1, 0.337255)
+position = Vector2(756, 339)
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer4"]
+position = Vector2(-1.00012, 67.3126)
+scale = Vector2(1.22656, 1.28576)
+texture = ExtResource("1_6nq8v")
