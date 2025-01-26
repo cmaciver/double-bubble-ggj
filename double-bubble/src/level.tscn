@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="3_vq1nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fh71"]
-size = Vector2(2241, 536)
+size = Vector2(1468, 373)
 
 [sub_resource type="Gradient" id="Gradient_032qk"]
 colors = PackedColorArray(0.486804, 0.327561, 0.430542, 1, 1, 1, 1, 1)
@@ -40,12 +40,12 @@ fill_from = Vector2(1, 0)
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1119.5, 460)
+position = Vector2(733, 378.5)
 shape = SubResource("RectangleShape2D_8fh71")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
-position = Vector2(4.50002, 2.00002)
-scale = Vector2(35.125, 8.3125)
+position = Vector2(-3.05176e-05, 2.25003)
+scale = Vector2(22.8125, 5.78906)
 texture = SubResource("GradientTexture2D_ha414")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -72,7 +72,7 @@ texture = SubResource("GradientTexture2D_2062n")
 position = Vector2(1632, -328)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_dmy4m")]
-position = Vector2(1376, -80)
+position = Vector2(454, 22)
 
 [node name="Bubble Character" parent="." instance=ExtResource("3_vq1nb")]
 position = Vector2(139, -67)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6yel3id1rfn4"]
+[gd_scene load_steps=21 format=3 uid="uid://c6yel3id1rfn4"]
 
 [ext_resource type="Script" path="res://src/player1/platformer_character.gd" id="1_8wvk8"]
 [ext_resource type="PackedScene" uid="uid://dve7uktmtl1sy" path="res://src/wind_gun.tscn" id="2_rfbsy"]
+[ext_resource type="Texture2D" uid="uid://dj1k0lu3pknf2" path="res://Art/bubblefighterJump-Sheet.png" id="3_hjxhu"]
+[ext_resource type="Texture2D" uid="uid://cy78yeaie525a" path="res://Art/bubblefighterRun-Sheet.png" id="4_fd1r7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnpdv"]
-size = Vector2(48, 48)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eclme"]
+radius = 18.0
+height = 56.0
 
 [sub_resource type="Gradient" id="Gradient_oejba"]
 colors = PackedColorArray(0.504174, 0.32616, 0.852131, 1, 0.592606, 0.455284, 0.97366, 1)
@@ -12,13 +15,116 @@ colors = PackedColorArray(0.504174, 0.32616, 0.852131, 1, 0.592606, 0.455284, 0.
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wiprs"]
 gradient = SubResource("Gradient_oejba")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4bwd"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(0, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_003gd"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(48, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufr65"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(96, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vkvu"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(144, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv6dt"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(240, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plabe"]
+atlas = ExtResource("3_hjxhu")
+region = Rect2(288, 0, 48, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp2ko"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(0, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foy2o"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(52, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tke1"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(104, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2hsr"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(156, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3jfo"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(208, 0, 52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is1v0"]
+atlas = ExtResource("4_fd1r7")
+region = Rect2(260, 0, 52, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7lox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4bwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_003gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufr65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vkvu")
+}],
+"loop": false,
+"name": &"platform_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv6dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plabe")
+}],
+"loop": true,
+"name": &"platform_land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp2ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foy2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tke1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2hsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is1v0")
+}],
+"loop": true,
+"name": &"platform_run",
+"speed": 8.0
+}]
+
 [node name="Platformer" type="CharacterBody2D"]
 script = ExtResource("1_8wvk8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dnpdv")
+shape = SubResource("CapsuleShape2D_eclme")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("GradientTexture2D_wiprs")
@@ -33,3 +139,8 @@ drag_bottom_margin = 0.0
 [node name="WindGun" parent="." instance=ExtResource("2_rfbsy")]
 visible = false
 scale = Vector2(0.970764, -0.45564)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d7lox")
+animation = &"platform_land"
+frame_progress = 0.644528

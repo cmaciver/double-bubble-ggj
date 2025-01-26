@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 # movement speed
-const SPEED = 400.0
+const SPEED = 300.0
 
 #default jump velocity @ start of jump
-const JUMP_DEFAULT = -500.0
+const JUMP_DEFAULT = -200.0
 
 #jump velocity, updated as you jump
 var jump_velocity : float
@@ -21,8 +21,24 @@ var is_jumping: bool
 var bounce_timer = 0.0
 
 @onready var wind : Area2D = $WindGun
+@onready var animation_player : AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	
+	#Animation
+	if is_on_floor() and is_jumping:
+		animation_player.play("platform_land")
+	elif Input.is_action_just_pressed("platform_jump"):
+		animation_player.play('platform_jump')
+	elif Input.get_axis("platform_left", "platform_right") < 0:
+		if is_on_floor():
+			animation_player.play("platform_run")
+		animation_player.flip_h = true
+	elif Input.get_axis("platform_left", "platform_right") > 0:
+		if is_on_floor():
+			animation_player.play("platform_run")
+		animation_player.flip_h = false
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -55,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		
 	#otherwise if you're already jumping, increase velocity if you keep holding jump up to a maximum velocity
-	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -600:
+	elif is_jumping and Input.is_action_pressed("platform_jump") and jump_velocity > -400:
 		jump_velocity *= 1.01;
 		velocity.y = jump_velocity
 		
@@ -94,6 +110,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
 
 	move_and_slide()
 	

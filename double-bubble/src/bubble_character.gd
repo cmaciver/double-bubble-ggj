@@ -30,7 +30,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		attract_towards_stuff()
 		
 		
-	print(current_bubbles)
 
 
 func spawn_bubble():
