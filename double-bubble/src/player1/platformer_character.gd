@@ -95,9 +95,9 @@ func _physics_process(delta: float) -> void:
 	#collide with bubble and bounce accordinlgyd
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().has_method("pop"):
-			collision.get_collider().pop()
-			if(position.y < collision.get_collider().position.y):
+		if collision.get_collider() is Bubble:
+			var bounce = collision.get_collider().pop()
+			if(bounce and position.y < collision.get_collider().position.y):
 				bounce_timer = .8;
 				jump_velocity = JUMP_DEFAULT;
 				velocity.y = jump_velocity;

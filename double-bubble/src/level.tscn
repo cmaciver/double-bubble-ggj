@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqoocyk7qdk8f"]
+[gd_scene load_steps=13 format=3 uid="uid://bqoocyk7qdk8f"]
 
 [ext_resource type="PackedScene" uid="uid://c6yel3id1rfn4" path="res://src/player1/platformer-character.tscn" id="1_ufydh"]
 [ext_resource type="PackedScene" uid="uid://b8y8lwa85u1et" path="res://src/bubble.tscn" id="2_dmy4m"]
+[ext_resource type="PackedScene" uid="uid://c22vtnmo6hfwj" path="res://src/bubble-character.tscn" id="3_vq1nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fh71"]
 size = Vector2(2241, 536)
@@ -36,6 +37,7 @@ fill_from = Vector2(1, 0)
 [node name="Level" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1119.5, 460)
@@ -71,3 +73,6 @@ position = Vector2(1632, -328)
 
 [node name="Bubble2" parent="." instance=ExtResource("2_dmy4m")]
 position = Vector2(1376, -80)
+
+[node name="Bubble Character" parent="." instance=ExtResource("3_vq1nb")]
+position = Vector2(139, -67)

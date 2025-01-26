@@ -24,7 +24,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		else:
 			spawn_bubble()
 		
+	#print("yar")
 	if Input.is_action_pressed("r_click"):
+		#print("har")
 		attract_towards_stuff()
 
 
@@ -61,18 +63,24 @@ func attract_towards_stuff():
 	
 	if (linear_velocity.length() > MAX_SPEED):
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
-		
+
+
 func pop() -> bool:
 	if popped == true: # doesn't actually pop if not refresh
 		return false
 		
-	modulate = "#00000080"
+	modulate = "#FFFFFF40"
 	popped = true
 	$RefreshTimer.start(3)
-	print("gamig")
+	collision_layer = 0
+	collision_mask = 4
+	
 	return true
 
 
 func _on_timer_timeout() -> void:
-	modulate = "#000000FF"
+	modulate = "#FFFFFFFF"
 	popped = false
+	
+	collision_layer = 2 + 1
+	collision_mask = 1 + 2 + 4
