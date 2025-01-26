@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Double Bubble"
-run/main_scene="res://src/level.tscn"
+run/main_scene="res://src/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Music="*res://src/music.tscn"
 
 [display]
 

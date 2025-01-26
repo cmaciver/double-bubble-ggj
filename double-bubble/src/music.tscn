@@ -6,3 +6,5 @@
 stream = ExtResource("1_fud73")
 volume_db = -4.0
 autoplay = true
+max_distance = 1.8e+07
+attenuation = 0.017337
